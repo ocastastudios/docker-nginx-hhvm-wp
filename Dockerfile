@@ -1,4 +1,4 @@
-FROM tutum/ubuntu:trusty
+FROM ubuntu:trusty
 MAINTAINER Ocasta Studios
 
 ENV DEBIAN_FRONTEND noninteractive
