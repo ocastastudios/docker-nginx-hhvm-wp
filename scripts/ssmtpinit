@@ -1,0 +1,9 @@
+#! /bin/bash
+if [ -n "$SMTP_HOSTNAME" ]; then echo "hostname=${SMTP_HOSTNAME}" > /etc/ssmtp/ssmtp.conf; fi
+if [ -n "$SMTP_ADMIN_EMAIL" ]; then echo "root=${SMTP_ADMIN_EMAIL}" >> /etc/ssmtp/ssmtp.conf; fi
+if [ -n "$SMTP_SERVER" ]; then echo "mailhub=${SMTP_SERVER}" >> /etc/ssmtp/ssmtp.conf; fi
+if [ -n "$SMTP_USERNAME" ]; then echo "AuthUser=${SMTP_USERNAME}" >>  /etc/ssmtp/ssmtp.conf; fi
+if [ -n "$SMTP_PASSWORD" ]; then echo "AuthPass=${SMTP_PASSWORD}" >> /etc/ssmtp/ssmtp.conf; fi
+if [ -n "$SMTP_USE_TLS" ]; then echo "UseTLS=${SMTP_USE_TLS}" >> /etc/ssmtp/ssmtp.conf; fi
+if [ -n "$SMTP_STARTTLS" ]; then echo "UseSTARTTLS=${SMTP_STARTTLS}" >> /etc/ssmtp/ssmtp.conf; fi
+echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf;
