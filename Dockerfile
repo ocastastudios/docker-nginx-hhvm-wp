@@ -58,6 +58,7 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
+RUN composer require aaemnnosttv/wp-cli-dotenv-command
 
 # Some misc cleanup
 WORKDIR /
