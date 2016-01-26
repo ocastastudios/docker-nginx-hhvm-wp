@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y upgrade
 
 # Basic Requirements
-RUN apt-get -y install php5-mysql php-apc curl unzip wget gawk
+RUN apt-get -y install php5-mysql php-apc curl unzip wget gawk git
 
 # Libav for video thumbnails
 RUN apt-get install -y libav-tools libavcodec-extra-54 libavformat-extra-54
@@ -58,11 +58,18 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
+RUN composer require aaemnnosttv/wp-cli-dotenv-command
 
 # Some misc cleanup
 WORKDIR /
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN rm -rf /etc/nginx/sites-enabled
+
+# install Bedrock  and then WP installation
+RUN mkdir -p /var/www
+RUN git clone --recursive --depth 1 https://github.com/roots/bedrock.git /var/www/public_html
+WORKDIR /var/www/public_html
+RUN composer install
 
 # Map local files
 ADD conf/hhvm /etc/hhvm
