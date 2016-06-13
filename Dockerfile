@@ -46,6 +46,7 @@ RUN apt-get update && apt-get -y upgrade && \
 # Map local files
 ADD conf/hhvm /etc/hhvm
 ADD conf/nginx/sites-enabled/host.conf /etc/nginx/conf.d/default.conf
+ADD conf/healthcheck/healthcheck.php /var/www/healthcheck.php
 
 # Add the wp-cron trigger cron job.
 ADD ["conf/cron.d/wp-cron-trigger","/etc/cron.d/wp-cron-trigger"]
