@@ -24,3 +24,5 @@ A project specific .env file should be mounted to _/var/www/public\_html/.env_
 The image also contains aaemnnosttv/wp-cli-dotenv-command so you can generate a set of WP salts by running the command:
 
    wp --allow-root dotenv salts generate --file=.env
+
+As of Wordpress 4.6 this image is running Ubuntu Xenial and PHP 5.6

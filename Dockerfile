@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 MAINTAINER Ocasta Studios
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -7,14 +7,14 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-get -y install wget software-properties-common && \
     cd /tmp/ && wget http://nginx.org/keys/nginx_signing.key && \
     apt-key add /tmp/nginx_signing.key && \
-    add-apt-repository 'deb http://nginx.org/packages/ubuntu/ trusty nginx' && \
+    add-apt-repository 'deb http://nginx.org/packages/ubuntu/ xenial nginx' && \
     apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449 && \
-    add-apt-repository 'deb http://dl.hhvm.com/ubuntu trusty main' && \
+    add-apt-repository 'deb http://dl.hhvm.com/ubuntu xenial main' && \
     apt-get -y update && \
-    apt-get -y install  php5-mysqlnd php-apc curl unzip wget gawk git && \
-    apt-get install -y libav-tools libavcodec-extra-54 libavformat-extra-54 && \
-    apt-get -y install php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming && \
-    apt-get -y install php5-ps php5-pspell php5-recode php5-redis php5-sqlite php5-tidy php5-xmlrpc php5-xsl && \
+    apt-get -y install curl unzip wget gawk git && \
+    apt-get install -y libav-tools libavcodec-extra libavformat-dev && \
+    apt-get -y install php-curl php-gd php-intl php-pear php-imagick php-imap php-mcrypt php-memcache && \
+    apt-get -y install php-pspell php-recode php-redis php-sqlite3 php-tidy php-xmlrpc php-xsl && \
     apt-get -q -y install ssmtp mailutils && \
     apt-get -y install supervisor && \
     mkdir -p /var/log/supervisor && \
