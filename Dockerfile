@@ -62,7 +62,7 @@ ADD supervisor.conf /etc/supervisor.conf
 ADD supervisor.confd /etc/supervisor/conf.d/
 
 # Set supervisord to launch upon the start of the container
-ENTRYPOINT ["supervisord"]
-CMD ["--configuration=/etc/supervisor.conf"]
+ENTRYPOINT ["/usr/local/bin/scripts/docker_entrypoint.sh"]
+CMD ["/usr/bin/supervisord", "--configuration=/etc/supervisor.conf"]
 
 
