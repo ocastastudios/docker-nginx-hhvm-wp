@@ -1,5 +1,5 @@
 # docker-nginx-hhvm-wp
-A docker image running wordpress using hhvm, nginx and supervisor.
+A docker image running WordPress using Bedrock, hhvm, nginx and supervisor.
 
 This image includes a pre-requisites for video and image manipulation plugins, wp-cli and has Composer installed for plugin management
 
