@@ -1,5 +1,5 @@
-# docker-nginx-hhvm-for-wp
-A docker image for running wordpress using hhvm, nginx and supervisor.
+# docker-nginx-hhvm-wp
+A docker image running wordpress using hhvm, nginx and supervisor.
 
 This image includes a pre-requisites for video and image manipulation plugins, wp-cli and has Composer installed for plugin management
 
@@ -25,4 +25,4 @@ The image also contains aaemnnosttv/wp-cli-dotenv-command so you can generate a 
 
    wp --allow-root dotenv salts generate --file=.env
 
-As of Wordpress 4.6 this image is running Ubuntu Xenial and PHP 5.6
+This image is running Ubuntu Xenial
