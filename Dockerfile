@@ -9,16 +9,17 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-key add /tmp/nginx_signing.key && \
     add-apt-repository 'deb http://nginx.org/packages/ubuntu/ xenial nginx' && \
     apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449 && \
-    add-apt-repository 'deb http://dl.hhvm.com/ubuntu xenial main' && \
+    add-apt-repository 'deb http://dl.hhvm.com/ubuntu xenial-lts-3.18 main' && \
     apt-get -y update && \
     apt-get -y install curl unzip wget gawk git && \
-    apt-get install -y libav-tools libavcodec-extra libavformat-dev && \
+    apt-get install -y libav-tools libavcodec-extra libavformat-dev ghostscript libgs-dev imagemagick && \
     apt-get -y install php-curl php-gd php-intl php-pear php-imagick php-imap php-mcrypt php-memcache && \
     apt-get -y install php-pspell php-recode php-redis php-sqlite3 php-tidy php-xmlrpc php-xsl && \
     apt-get -q -y install ssmtp mailutils && \
     apt-get -y install supervisor && \
     mkdir -p /var/log/supervisor && \
     apt-get install -y python-pip && pip install supervisor-stdout && \
+    apt-get -y install php7.0-mysql mysql-client && \
     apt-get -y install nginx && \
     sed -i -e"s/keepalive_timeout\s*65/keepalive_timeout 2/" /etc/nginx/nginx.conf && \
     sed -i -e"s/keepalive_timeout 2/keepalive_timeout 2;\n\tclient_max_body_size 100m/" /etc/nginx/nginx.conf && \
@@ -34,9 +35,9 @@ RUN apt-get update && apt-get -y upgrade && \
     curl -sS https://getcomposer.org/installer | php && \
     chmod +x composer.phar && \
     mv composer.phar /usr/local/bin/composer && \
-    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-    chmod +x wp-cli.phar && \
-    mv wp-cli.phar /usr/local/bin/wp && \
+    wget -O php-wpcli_1.1.0_all.deb https://github.com/wp-cli/builds/raw/gh-pages/deb/php-wpcli_1.1.0_all.deb && \
+    dpkg -i php-wpcli_1.1.0_all.deb && \
+    mv /usr/bin/wp /usr/local/bin/wp && \
     composer require aaemnnosttv/wp-cli-dotenv-command && \
     mkdir -p /var/www && \
     git clone --recursive --depth 1 https://github.com/roots/bedrock.git /var/www/public_html && \
