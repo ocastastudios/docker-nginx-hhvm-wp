@@ -25,4 +25,4 @@ The image also contains aaemnnosttv/wp-cli-dotenv-command so you can generate a 
 
    wp --allow-root dotenv salts generate --file=.env
 
-This image is running Ubuntu Xenial
+This image is running Ubuntu Xenial, HHVM 3.21 and HHVM is configured in PHP7 mode
