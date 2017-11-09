@@ -42,7 +42,7 @@ RUN apt-get update && apt-get -y upgrade && \
     mkdir -p /var/www && \
     git clone --recursive --depth 1 https://github.com/roots/bedrock.git /var/www/public_html && \
     cd /var/www/public_html && \
-    composer install
+    composer install --no-dev
 
 # Map local files
 ADD conf/hhvm /etc/hhvm
