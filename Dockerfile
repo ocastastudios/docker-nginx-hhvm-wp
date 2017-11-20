@@ -4,12 +4,12 @@ MAINTAINER Ocasta Studios
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install wget software-properties-common && \
+    apt-get -y install wget software-properties-common apt-utils apt-transport-https && \
     cd /tmp/ && wget http://nginx.org/keys/nginx_signing.key && \
     apt-key add /tmp/nginx_signing.key && \
     add-apt-repository 'deb http://nginx.org/packages/ubuntu/ xenial nginx' && \
-    apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449 && \
-    add-apt-repository 'deb http://dl.hhvm.com/ubuntu xenial main' && \
+    apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xB4112585D386EB94 && \
+    add-apt-repository 'deb https://dl.hhvm.com/ubuntu xenial main' && \
     apt-get -y update && \
     apt-get -y install curl unzip wget gawk git && \
     apt-get install -y libav-tools libavcodec-extra libavformat-dev ghostscript libgs-dev imagemagick && \
