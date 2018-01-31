@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-key add /tmp/nginx_signing.key && \
     add-apt-repository 'deb http://nginx.org/packages/ubuntu/ xenial nginx' && \
     apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xB4112585D386EB94 && \
-    add-apt-repository 'deb https://dl.hhvm.com/ubuntu xenial main' && \
+    add-apt-repository 'deb https://dl.hhvm.com/ubuntu xenial-lts-3.21 main' && \
     apt-get -y update && \
     apt-get -y install curl unzip wget gawk git && \
     apt-get install -y libav-tools libavcodec-extra libavformat-dev ghostscript libgs-dev imagemagick && \
