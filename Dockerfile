@@ -32,7 +32,7 @@ RUN apt-get update && apt-get -y upgrade && \
     curl -sS https://getcomposer.org/installer | php && \
     chmod +x composer.phar && \
     mv composer.phar /usr/local/bin/composer && \
-    wget -O wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    wget -O wp-cli.phar https://raw.github.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp && \
     composer require aaemnnosttv/wp-cli-dotenv-command && \
     mkdir -p /var/www && \
